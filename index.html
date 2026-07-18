@@ -617,7 +617,7 @@
   </div>
 </footer>
 
-<script>
+<script type="">
 /* ---------------- DATA ---------------- */
 /*
   HOW TO ADD A NEW PROJECT OR VIDEO:
@@ -1024,37 +1024,7 @@ document.getElementById('langToggle').addEventListener('click', e=>{
   if(b){ state.lang = b.dataset.lang; applyI18n(); }
 });
 
-/* ================================================================
-   REAL LOGIN + LIVE COMMUNITY CHANNEL — powered by Firebase
-   ================================================================
-   To make this work on your live site (e.g. GitHub Pages):
-   1) Go to https://console.firebase.google.com → create a free project.
-   2) Build → Authentication → Get started → enable "Email/Password".
-   3) Build → Firestore Database → Create database → start in test mode.
-   4) In Firestore → Rules tab, paste this and click Publish:
-        rules_version = '2';
-        service cloud.firestore {
-          match /databases/{database}/documents {
-            match /messages/{id} {
-              allow read: if true;
-              allow create: if request.auth != null;
-              allow delete: if request.auth != null;
-              allow update: if false;
-            }
-          }
-        }
-   5) Project settings (gear icon) → General → "Your apps" → Add app → Web.
-      Copy the config object it gives you and paste it below, replacing
-      the placeholder values.
-   ================================================================ */
-const firebaseConfig = {
-  apiKey: "PASTE_YOUR_API_KEY",
-  authDomain: "PASTE_YOUR_PROJECT.firebaseapp.com",
-  projectId: "PASTE_YOUR_PROJECT_ID",
-  storageBucket: "PASTE_YOUR_PROJECT.appspot.com",
-  messagingSenderId: "PASTE_YOUR_SENDER_ID",
-  appId: "PASTE_YOUR_APP_ID"
-};
+
 
 const firebaseReady = firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith('PASTE_');
 let auth = null, db = null;
