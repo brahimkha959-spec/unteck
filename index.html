@@ -617,7 +617,12 @@
   </div>
 </footer>
 
-<script type="">
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+  
 /* ---------------- DATA ---------------- */
 /*
   HOW TO ADD A NEW PROJECT OR VIDEO:
@@ -1024,7 +1029,24 @@ document.getElementById('langToggle').addEventListener('click', e=>{
   if(b){ state.lang = b.dataset.lang; applyI18n(); }
 });
 
+const firebaseConfig = {
+  apiKey: "AIzaSyBagGvViG3Ep-1XeSmn0McXD7zfOfoig5o",
+  authDomain: "unteckb.firebaseapp.com",
+  projectId: "unteckb",
+  storageBucket: "unteckb.firebasestorage.app",
+  messagingSenderId: "413128214346",
+  appId: "1:413128214346:web:4cc1ec9f86029bfb7823b3",
+  measurementId: "G-NN12DGWD38"
+};
 
+// تهيئة الخدمات
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// ربطهم بالمتصفح ليراهم باقي كود الموقع بالأسفل
+window.auth = auth;
+window.db = db;
 
 const firebaseReady = firebaseConfig.apiKey && !firebaseConfig.apiKey.startsWith('PASTE_');
 let auth = null, db = null;
