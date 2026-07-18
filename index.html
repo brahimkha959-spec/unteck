@@ -617,7 +617,7 @@
   </div>
 </footer>
 
-<script>
+<script type="module">
 /* ---------------- DATA ---------------- */
 /*
   HOW TO ADD A NEW PROJECT OR VIDEO:
@@ -1024,14 +1024,6 @@ document.getElementById('langToggle').addEventListener('click', e=>{
   if(b){ state.lang = b.dataset.lang; applyI18n(); }
 });
 
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBagGvViG3Ep-1XeSmn0McXD7zfOfoig5o",
   authDomain: "unteckb.firebaseapp.com",
@@ -1041,6 +1033,15 @@ const firebaseConfig = {
   appId: "1:413128214346:web:4cc1ec9f86029bfb7823b3",
   measurementId: "G-NN12DGWD38"
 };
+
+// تهيئة الخدمات
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// ربطهم بالمتصفح ليراهم باقي كود الموقع بالأسفل
+window.auth = auth;
+window.db = db;
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
